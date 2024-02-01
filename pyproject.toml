@@ -1,0 +1,30 @@
+[project]
+name = "assessment-centre"
+version = "1.0.0"
+description = "Default template for PDM package"
+authors = [{ name = "Bohumil Fiala", email = "bohumil.fiala@iseco.cz" }]
+dependencies = ["flask>=3.0.0", "flask-sqlalchemy>=3.1.1", "requests>=2.31.0"]
+requires-python = ">=3.11"
+readme = "README.md"
+license = { text = "MIT" }
+
+[tool.pdm]
+package-type = "application"
+
+[tool.pdm.scripts]
+init-db = { shell = "flask init-db", env = { FLASK_APP = "ac:create_app" } }
+start = { shell = "flask run --reload --debug", env = { FLASK_APP = "ac:create_app" } }
+
+[tool.pdm.dev-dependencies]
+linter = ["mypy>=1.8.0", "ruff"]
+dev = ["types-requests>=2.31.0.20240106"]
+
+[tool.ruff]
+select = ["ALL"]
+ignore = ["D", "ANN101"]
+line-length = 120
+indent-width = 4
+target-version = "py311"
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"

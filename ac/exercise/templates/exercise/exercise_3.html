@@ -1,0 +1,43 @@
+{% extends "exercise/base.html" %}
+{% block title %}Exercise 3 - Answer me{%endblock%}
+{% block subtitle %}When I say HI, you say...{%endblock%}
+
+{% block task %}
+<h2>Greetings Galaxy Hitchhiker!</h2>
+<p>
+    I hope you enjoy the reference to my favourite book. Anyway, great job.<br />
+    This is the first programmer challenge. In your project there is a <code>Flask BluePrint</code> prepared which is
+    called <code>Holly</code>. In Red Dwarf, Holly was an AI with <strong>6,000 IQ</strong>. In our challenge, Holly
+    won't be that smart.
+    Your task is to implement three endpoints that will be tested before you can proceed:<br />
+
+<ul>
+    <li><strong>/greetings</strong> - This endpoint is tested with a <code>GET</code> request and the expected response
+        is string <code>Hello, my friend</code></li>
+    <li><strong>/sum</strong> - This endpoint is tested with a <code>POST</code> request. During the test, two values
+        are passed to the form object
+        (<code>first_number</code> and <code>second_number</code>). The task is to return their sum.</li>
+    <li><strong>/redirect</strong> - This endpoint is tested with a <code>GET</code> request. In this case, you will
+        need to implement the redirect to the <code>/greetings</code> endpoint in a proper Flask way (implementation of
+        the <code>/greetings</code> endpoint is required for this step).
+    </li>
+</ul>
+
+For more useful information, see the Flask
+<a href="https://flask.palletsprojects.com/en/3.0.x/">documentation</a>.
+</p>
+{%endblock%}
+
+
+{% block solution %}
+<form action="/exercise/3" method="post">
+    <div class="control">
+        <button class="button is-success">
+            <span class="icon is-small">
+                <i class="fas fa-check"></i>
+            </span>
+            <span>Perform test</span>
+        </button>
+    </div>
+</form>
+{%endblock%}

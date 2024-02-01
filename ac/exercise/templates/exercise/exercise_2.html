@@ -1,0 +1,43 @@
+{% extends "exercise/base.html" %}
+{% block title %}Exercise 2 - Secret cipher{%endblock%}
+{% block subtitle %}Unsolved mystery{%endblock%}
+
+{% block task %}
+<h2>Well done on the first exercise!</h2>
+<p>
+    This time your mission is to decipher a secret message. This message was found while investigating one of the
+    greatest mysteries of all time. The mystery is... Oh, Common, do you really think this is going to be that easy?
+    Anyway, this is the message:<br /><br />
+<pre>
+VGhlIGFuc3dlciB0byB0aGUgdWx0aW1hdGUgcXVlc3Rpb24gb2YgbGlmZSwgdGhlIHVua
+XZlcnNlIGFuZCBldmVyeXRoaW5nIGlzIDQyLiBZZXMsIGFuZCBieSB0aGUgd2F5LCB0aG
+Ugc2VjcmV0IHBhc3N3b3JkIGlzIExJbnlsZHFCbXp3ZUteIzhzJE9acGcjemVCZiowVA==
+</pre><br /><br />
+
+The solution to this puzzle is <strong>8 bytes away</strong> from you.
+Good luck and see you in next exercise.
+</p>
+{%endblock%}
+
+
+{% block solution %}
+<form action="/exercise/2" method="post">
+    <div class="field">
+        <label class="label">Password</label>
+        <div class="control has-icons-left">
+            <input class="input" name="password" id="password" type="password" placeholder="Secret code from message">
+            <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+            </span>
+        </div>
+    </div>
+    <div class="control">
+        <button class="button is-success">
+            <span class="icon is-small">
+                <i class="fas fa-check"></i>
+            </span>
+            <span>Send secret code</span>
+        </button>
+    </div>
+</form>
+{%endblock%}

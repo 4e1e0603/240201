@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ self.title() }}</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='img/favicon.ico') }}"
+      type="image/x-icon"
+    />
+  </head>
+  <body class="has-navbar-fixed-top">
+    <nav class="navbar iseco-bg is-fixed-top">
+      <div class="navbar-menu is-active">
+        <div class="navbar-start">
+          <div class="navbar-item exercise-title">
+            <h1 class="title has-text-white">{%block title%}{%endblock%}</h1>
+            <h2 class="subtitle has-text-white">
+              {%block subtitle%}{%endblock%}
+            </h2>
+          </div>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <nav class="pagination" role="navigation" aria-label="pagination">
+              <ul class="pagination-list">
+                {% for allowed_exercise_id in range(1, allowed_exercises + 1) %}
+                <li>
+                  {% if allowed_exercise_id == exercise_id %}
+                  <a
+                    class="pagination-link is-current"
+                    aria-label="Goto exercise {{ allowed_exercise_id  }}"
+                    href="/exercise/{{ allowed_exercise_id }}"
+                    >{{ allowed_exercise_id }}</a
+                  >
+                  {% else %}
+                  <a
+                    class="pagination-link"
+                    aria-label="Goto exercise {{ allowed_exercise_id  }}"
+                    href="/exercise/{{ allowed_exercise_id }}"
+                    >{{ allowed_exercise_id }}</a
+                  >
+                  {%endif %}
+                </li>
+                {% endfor %}
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="hero is-fullheight-with-navbar">
+      <div
+        class="hero-body has-background-light"
+        style="align-items: flex-start"
+      >
+        <div class="container">
+          <article class="media">
+            <figure class="media-left">
+              <span class="icon is-large has-text-danger">
+                <i class="far fa-question-circle fa-3x"></i>
+              </span>
+            </figure>
+            <div class="media-content">
+              <div class="box content">{%block task%}{%endblock%}</div>
+              {% with messages = get_flashed_messages() %} {% if messages %} {%
+              for message in messages %}
+              <div class="notification is-danger mb-1">{{message}}</div>
+              {% endfor %} {% endif %} {% endwith %}
+            </div>
+          </article>
+          <article class="media">
+            <div class="media-content">
+              <div class="box">{%block solution%}{%endblock%}</div>
+            </div>
+            <figure class="media-right">
+              <span class="icon is-large has-text-success">
+                <i class="far fa-play-circle fa-3x"></i>
+              </span>
+            </figure>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+  </body>
+</html>

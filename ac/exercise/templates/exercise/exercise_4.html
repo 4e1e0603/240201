@@ -1,0 +1,38 @@
+{% extends "exercise/base.html" %}
+{% block title %}Exercise 4 - Magic{%endblock%}
+{% block subtitle %}Show me your magic{%endblock%}
+
+{% block task %}
+<h2>Good news everyone!</h2>
+<p>
+    Time for a little magic. Python is one of the most popular programming languages today. <strong>Magic</strong>
+    methods are one of the
+    specialities of Python classes. Your task is to implement two of the most famous magic methods for our good guy
+    <strong>Holly</strong>.<br />
+    As we are quite far in our journey, the only hint you have is that the class template is prepared for you in
+    the <strong>holly/structures.py</strong> package and that the test will contain these two calls:
+<ul>
+    <li><strong>str(holly_instance)</strong> - with the expected result
+        <code>I am Holly and I have an IQ of 6000. Which is the same as 6000 PE teachers.</code>
+    </li>
+    <li><strong>repr(holly_instance)</strong> - with the expected result <code>Holly()</code></li>
+</ul>
+
+For more information on <strong>magic</strong> methods, see this
+<a href="https://www.tutorialsteacher.com/python/magic-methods-in-python">article</a>.
+</p>
+{%endblock%}
+
+
+{% block solution %}
+<form action="/exercise/4" method="post">
+    <div class="control">
+        <button class="button is-success">
+            <span class="icon is-small">
+                <i class="fas fa-check"></i>
+            </span>
+            <span>Run a test</span>
+        </button>
+    </div>
+</form>
+{%endblock%}
